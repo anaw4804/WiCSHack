@@ -12,7 +12,7 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
-	<body class="is-preload">
+	<body>
 
 		<!-- Wrapper -->
 			<div id="wrapper">
@@ -47,15 +47,15 @@
 							<article id="About_us">
 								<h2 class="major">About us</h2>
 								<span class="image main"><img src="images/pets.jpg" alt="" /></span>
-								<p> Serving Paws is a nonprofit organization that matches up veterans with animals 
+								<p> Serving Paws is a nonprofit organization that matches up veterans with animals
 									from a shelter that could be applied for service animal status. Many veterans deal with crippling effects
-									of Post Traumatic Stress Disorder (PTSD) from their service, which often lead to feelings of fear and 
+									of Post Traumatic Stress Disorder (PTSD) from their service, which often lead to feelings of fear and
 									hopelessness. However, it's been proven that veterans who own pets have reduced levels of anxiety
 									and depression. The goal of Serving Paws is to match up veterans with dogs and cats from the Austin Pets Alive shelter and
 									provide them with emotional support animals that will help to lower their levels of psychological stress. The animals on
-									our website have been specially chosen for their loving and kind nature! To get started, 
+									our website have been specially chosen for their loving and kind nature! To get started,
 									create a profile <a href="#Profile">here</a>.</p>
-								
+
 							</article>
 
 						<!-- Doogs???? -->
@@ -77,7 +77,7 @@
 
 
 							</article>
-				
+
 
 						<!-- Cats -->
 							<article id="Cats">
@@ -123,7 +123,7 @@
 									<ul class="actions">
 										<li><input type="submit" value="Create Profile" class="primary" /></li>
 										<li><input type="reset" value="Reset" /></li>
-										
+
 									</ul>
 								</form>
 								<ul class="icons">
@@ -133,13 +133,53 @@
 									<li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
 								</ul>
 							</article>
+							<!-- Chat With therapist -->
+							<article id="Chat">
+								<h2 class="major">Chat</h2>
+								<!-- minified snippet to load TalkJS without delaying your page -->
+<script>
+(function(t,a,l,k,j,s){
+s=a.createElement('script');s.async=1;s.src="https://cdn.talkjs.com/talk.js";a.head.appendChild(s)
+;k=t.Promise;t.Talk={v:2,ready:{then:function(f){if(k)return new k(function(r,e){l.push([f,r,e])});l
+.push([f])},catch:function(){return k&&new k()},c:l}};})(window,document,[]);
+</script>
 
-							<!-- Chat -->
-								<article id="Chat">
-									<h2 class="major">Chat</h2>
-									<script type="text/javascript" src="https://unpkg.com/@cometchat-pro/chat@2.0.5/CometChat.js"></script>
-									
-								</article>
+<!-- container element in which TalkJS will display a chat UI -->
+<div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+
+<!-- TalkJS initialization code, which we'll customize in the next steps -->
+<script>
+Talk.ready.then(function() {
+    var me = new Talk.User({
+        id: "123456",
+        name: "Alice",
+        email: "alice@example.com",
+        photoUrl: "https://demo.talkjs.com/img/alice.jpg",
+        welcomeMessage: "Hey there! How are you? :-)"
+    });
+    window.talkSession = new Talk.Session({
+        appId: "tuDQhfAL",
+        me: me
+    });
+    var other = new Talk.User({
+        id: "654321",
+        name: "Sebastian",
+        email: "Sebastian@example.com",
+        photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+        welcomeMessage: "Hey, how can I help?"
+    });
+
+    var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
+    conversation.setParticipant(me);
+    conversation.setParticipant(other);
+    var inbox = talkSession.createInbox({selected: conversation});
+    inbox.mount(document.getElementById("talkjs-container"));
+});
+</script>
+
+
+
+							</article>
 
 						<!-- Elements -->
 							<article id="elements">
